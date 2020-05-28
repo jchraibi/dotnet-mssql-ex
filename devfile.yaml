@@ -1,0 +1,69 @@
+---
+apiVersion: 1.0.0
+metadata:
+  name: sun-dotnet-5ockq
+projects:
+  - name: dotnet-mssql-ex
+    source:
+      location: 'https://github.com/jchraibi/dotnet-mssql-ex.git'
+      type: git
+      branch: master
+components:
+  - id: redhat-developer/che-omnisharp-plugin/latest
+    memoryLimit: 1024Mi
+    type: chePlugin
+    alias: omnisharp
+  - id: redhat-developer/netcoredbg-theia-plugin/latest
+    memoryLimit: 512Mi
+    type: chePlugin
+    alias: netcoredbg
+  - mountSources: true
+    endpoints:
+      - name: 5000-tcp
+        port: 5000
+    memoryLimit: 512Mi
+    type: dockerimage
+    volumes:
+      - name: dotnet
+        containerPath: /home/user
+    alias: dotnet
+    image: 'quay.io/eclipse/che-dotnet-2.2:nightly'
+apiVersion: 1.0.0
+commands:
+  - name: update dependencies
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/dotnet-mssql-ex'
+        type: exec
+        command: dotnet restore
+        component: dotnet
+  - name: run
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/dotnet-mssql-ex'
+        type: exec
+        command: dotnet run
+        component: dotnet
+  - name: build
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/dotnet-mssql-ex'
+        type: exec
+        command: dotnet build
+        component: dotnet
+  - name: Launch .NET Web Application on Debug mode
+    actions:
+      - referenceContent: |
+          {
+            "version": "0.2.0",
+              "configurations": [
+                 {
+                    "type": "netcoredbg",
+                    "request": "launch",
+                    "program": "/projects/dotnet-mssql-ex/bin/Debug/netcoreapp3.1/web.dll",
+                    "args": [],
+                    "name": ".NET Core Launch (console)",
+                    "stopAtEntry": true,
+                    "preLaunchTask": "build",
+                    "console": "internalConsole"
+                  }
+              ]
+          }
+        type: vscode-launch
