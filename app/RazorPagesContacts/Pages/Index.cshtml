@@ -2,12 +2,31 @@
 @model RazorPagesContacts.Pages.IndexModel
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
-<h1>Contacts v2</h1>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>SportsStore</title>
+</head>
+
+<body>
+<div class="media">
+  <img src="https://www.vodafone.com/content/dam/vodcom/icons/Vod_Roundel_red%403x.png.rendition.3840.3840.png" class="mr-3">
+  <div class="media-body">
+    <h5 class="mt-0">Customers address book</h5>
+    This is the customers management app
+  </div>
+</div>
+
+<br>
 <form method="post">
     <table class="table">
         <thead>
             <tr>
                 <th>ID</th>
+                <th>Photo</th>
                 <th>Name</th>
             </tr>
         </thead>
@@ -16,10 +35,12 @@
             {
                 <tr>
                     <td>@contact.Id</td>
+                    <td><img style="height: 30px" src="https://upload.wikimedia.org/wikipedia/commons/0/0a/Gnome-stock_person.svg"></td>
                     <td>@contact.Name</td>
                     <td>
-                        <a asp-page="./Edit" asp-route-id="@contact.Id">edit</a>
-                        <button type="submit" asp-page-handler="delete" 
+                        <a asp-page="./Edit" asp-route-id="@contact.Id" class="btn btn-success">edit</a>
+
+                        <button type="submit" class="btn btn-danger" asp-page-handler="delete" 
                                 asp-route-id="@contact.Id">delete</button>
                     </td>
                 </tr>
@@ -27,5 +48,10 @@
         </tbody>
     </table>
 
-    <a asp-page="./Create">Create</a>
+    <a asp-page="./Create" class="btn btn-primary" >Create</a>
 </form>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
