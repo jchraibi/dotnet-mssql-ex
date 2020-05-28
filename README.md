@@ -1,3 +1,17 @@
+# Quarkus and Che
+
+To run this demo:
+
+[![Contribute](https://che.openshift.io/factory/resources/factory-contribute.svg)](http://http://codeready-toolchain-workspaces.apps.ocp4.cloud.openshift.fr/f?url=https://raw.githubusercontent.com/jchraibi/dotnet-mssql-ex/bootstrap/devfile.yaml)
+
+or
+
+```
+https://<your-che-instance>/f?url=https://raw.githubusercontent.com/sunix/che-quarkus-demo/microservices/devfile.yaml
+```
+
+
+
 ## Adding SQL Server to OpenShift
 
 There is no pre-built SQL Server image. We can make OpenShift build this image for us. This requires OpenShift to be configured with subscription credentials and the Docker strategy allowed. 
