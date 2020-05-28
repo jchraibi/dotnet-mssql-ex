@@ -1,13 +1,13 @@
-# Quarkus and Che
+# OpenShift Codeready workspaces IDE-as-a-service
 
-To run this demo:
+To edit this code and run it:
 
-[![Contribute](https://che.openshift.io/factory/resources/factory-contribute.svg)](http://http://codeready-toolchain-workspaces.apps.ocp4.cloud.openshift.fr/f?url=https://raw.githubusercontent.com/jchraibi/dotnet-mssql-ex/bootstrap/devfile.yaml)
+[![Contribute](https://che.openshift.io/factory/resources/factory-contribute.svg)](http://codeready-toolchain-workspaces.apps.ocp4.cloud.openshift.fr/f?url=https://raw.githubusercontent.com/jchraibi/dotnet-mssql-ex/bootstrap/devfile.yaml)
 
 or
 
 ```
-https://<your-che-instance>/f?url=https://raw.githubusercontent.com/sunix/che-quarkus-demo/microservices/devfile.yaml
+https://<your-che-instance>/f?url=https://raw.githubusercontent.com/jchraibi/dotnet-mssql-ex/bootstrap/devfile.yaml
 ```
 
 
